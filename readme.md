@@ -7,6 +7,7 @@ A small PHP practice project for learning and experimenting with core PHP concep
 
 ## Project Structure
 ```
+```
 text
 PHP_Practice/
 ├── exercism/        # Exercism PHP practice exercises
@@ -19,7 +20,7 @@ PHP_Practice/
 └── person.html      # Basic HTML file
 ```
 ## Requirements
-
+git s
 - PHP 5.6 or newer
 - Composer
 
