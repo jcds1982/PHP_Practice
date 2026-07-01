@@ -1,12 +1,11 @@
 Here’s a simple `README.md` you can add to the project root:
 
-```markdown
+
 # PHP Practice
 
 A small PHP practice project for learning and experimenting with core PHP concepts, Composer dependencies, and basic PHP exercises.
 
 ## Project Structure
-```
 ```
 text
 PHP_Practice/
