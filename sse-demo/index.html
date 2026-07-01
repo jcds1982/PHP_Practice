@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SSE Real-Time Demo</title>
+</head>
+<body>
+
+<h2>Real-Time SSE Updates</h2>
+
+<div id="output" style="font-size: 22px; margin-bottom: 20px;">
+    Waiting for updates...
+</div>
+
+<form id="form">
+    <input type="text" id="value" placeholder="Type something..." autocomplete="off">
+    <button type="submit">Update</button>
+</form>
+
+<script>
+    // Listen for server updates
+    const evt = new EventSource("stream.php");
+
+    evt.onmessage = (e) => {
+        const data = JSON.parse(e.data);
+        document.getElementById("output").textContent = data.value;
+    };
+
+    // Send updates
+    document.getElementById("form").onsubmit = async (e) => {
+        e.preventDefault();
+        const value = document.getElementById("value").value;
+
+        await fetch("update.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: "value=" + encodeURIComponent(value)
+        });
+
+        document.getElementById("value").value = "";
+    };
+</script>
+
+</body>
+</html>
